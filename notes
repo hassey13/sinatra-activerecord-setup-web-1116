@@ -1,0 +1,11 @@
+1.  GET '/authors' --> AuthorsController --> index all authors --> SELECT * FROM authors --> @authors = Author.all
+
+2.  GET '/authors/:id' - see 1 author --> @author = Author.find(params[:id]) --> SELECT * FROM authors WHERE id = ...
+
+3.  GET 'authors/new' form
+	  POST 'authors/new' save, redirect to authors/:id --> @author = Author.create(params[:author]) --> INSTER INTO authors (columns) VALUES (values) | select last row --> redirect 'author/:id'
+
+4.  DELETE '?authors/:id' --> 'destroy' action --> Author.find(params[:id]) | author.destroy --> DELETE FROM authors WHERE id = ...
+
+5.  GET '/authors/:id/edit' --> 'edit' action --> Author.find(params[:id])  
+		PATCH '/authors/:id' --> 'update' action --> Author.find(params[:id]) | author.update --> UPDATE authors SET values WHERE id = ...
